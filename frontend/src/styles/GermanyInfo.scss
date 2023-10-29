@@ -1,0 +1,26 @@
+.statistics-item {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.statistic-label {
+  margin-right: 10px;
+}
+
+.statistic-value {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.statistic-value.cases {
+  color: #da774a;
+}
+
+.statistic-value.deaths {
+  color: #ff0000;
+}
+
+.statistic-value.recovered {
+  color: #00b900;
+}

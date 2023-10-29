@@ -1,0 +1,132 @@
+org: ayoubbenaissa
+app: aws-node-express-api-project
+service: aws-node-express-api-project
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  germany:
+    handler: handler.germany
+    events:
+      - http:
+          path: /germany
+          method: get
+          integration: lambda
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - X-Amzn-Trace-Id
+            allowCredentials: false
+  stateInfo:
+    handler: handler.stateInfo
+    events:
+      - http:
+          path: /state-info
+          method: post
+          integration: lambda
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - X-Amzn-Trace-Id
+            allowCredentials: false
+  allCases:
+    handler: handler.allCases
+    events:
+      - http:
+          path: /cases
+          method: get
+          integration: lambda
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - X-Amzn-Trace-Id
+            allowCredentials: false
+  latestCases:
+    handler: handler.latestCases
+    events:
+      - http:
+          path: /cases-per-day/{id}
+          method: get
+          integration: lambda
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - X-Amzn-Trace-Id
+            allowCredentials: false
+          request:
+            parameters:
+              paths:
+                id: true
+  allDeaths:
+    handler: handler.allDeaths
+    events:
+      - http:
+          path: /deaths
+          method: get
+          integration: lambda
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - X-Amzn-Trace-Id
+            allowCredentials: false
+  latestDeaths:
+    handler: handler.latestDeaths
+    events:
+      - http:
+          path: /deaths-per-day/{id}
+          method: get
+          integration: lambda
+          cors:
+            origin: "*"
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - X-Amzn-Trace-Id
+            allowCredentials: false
+          request:
+            parameters:
+              paths:
+                id: true
+  notFound:
+    handler: error.main
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY

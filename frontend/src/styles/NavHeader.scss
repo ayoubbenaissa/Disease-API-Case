@@ -1,0 +1,26 @@
+.nav-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  height: 50px;
+}
+
+.nav-content {
+  display: flex;
+  align-self: center;
+}
+
+.nav-item {
+  margin: 5px 10px;
+  cursor: pointer;
+}
+
+.nav-item a {
+  font-size: 18px;
+  color: #17604f;
+  text-decoration: none;
+}
+
+.nav-item a:hover {
+  color: #808080;
+}
