@@ -9,6 +9,9 @@ export const NavHeader = () => {
           <Link to="/">Home</Link>
         </div>
         <div className="nav-item">
+          <Link to="/germany">Germany</Link>
+        </div>
+        <div className="nav-item">
           <Link to="/cases">Cases</Link>
         </div>
         <div className="nav-item">
